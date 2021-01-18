@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lightButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        updateUI()
     }
     @IBAction func buttonPressed(_ sender: Any) {
         lightOn = !lightOn
@@ -22,11 +22,17 @@ class ViewController: UIViewController {
     }
     
     private func updateUI() {
-        if lightOn {
-            view.backgroundColor = .white
-        } else {
-            view.backgroundColor = .black
-        }
+        // 三項条件演算子
+        view.backgroundColor = lightOn ? .white : .black
+        let titleText = lightOn ? "On" : "Off"
+        lightButton.setTitle(titleText, for: .normal)
+//        if lightOn {
+//            view.backgroundColor = .white
+//            lightButton.setTitle("On", for: .normal)
+//        } else {
+//            view.backgroundColor = .black
+//            lightButton.setTitle("Off", for: .normal)
+//        }
     }
 }
 
